@@ -1,12 +1,14 @@
 # Python Port Forward
 This script forwards a number of configured local ports to local or remote socket servers.
+original script by vinodpandey modified to work on py3 for use with artillery from BinaryDefense
+this whole script will eventually work its way into said software.
 
 ## Usage:
 ```
-git clone git@github.com:vinodpandey/python-port-forward.git
-cd python-port-forward
-# update port-forward.config file
-# default port forward is localhost:80 > localhost:8080 (80 localhost 8080)
+On windows:
+python port-forward.py
+
+On linux:
 sudo python port-forward.py
 
 # with default port-forward.config, access: http://localhost/ -> this should now show content from http://localhost:8080/
@@ -17,6 +19,7 @@ sudo python port-forward.py
 ## Configuration:
 ```
 Add to the config file port-forward.config lines with contents as follows:
+can specify multiple lines
 
 <local incoming port> <dest hostname> <dest port>
 ```
