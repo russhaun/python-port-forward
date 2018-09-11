@@ -13,40 +13,51 @@
 # Start the application at command line with 'python port-forward.py'
 # and stop the application by keying in <ctrl-c>.
 #
-# Error messages are stored in file 'error.log'.
 #
-
+#
+import os
 import socket
 import sys
-import thread
+try: 
+    import thread
+except ImportError: 
+    import _thread as thread
 import time
+
 
 def main(setup, error):
     # open file for error messages
-    sys.stderr = file(error, 'a')
+    sys.stderr = error
     # read settings for port forwarding
+    print("[*] Docker Proxy: Starting setup.........")
     for settings in parse(setup):
-        thread.start_new_thread(server, settings)
+        #print(settings)
+        thread.start_new_thread(server(settings))
     # wait for <ctrl-c>
     while True:
        time.sleep(60)
 
 def parse(setup):
-    settings = list()
-    for line in file(setup):
+    print("[*] Docker Proxy: Reading config.........")
+    settings = []
+    #print(settings)
+    for line in setup:
         # skip comment line
+        #print(line)
         if line.startswith('#'):
-            continue
-
+            continue   
         parts = line.split()
         settings.append((int(parts[0]), parts[1], int(parts[2])))
+    #print(settings)   
     return settings
 
-def server(*settings):
+def server(settings):
     try:
+        print("[*] Docker Proxy: Server starting..........")
         dock_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         dock_socket.bind(('', settings[0]))
         dock_socket.listen(5)
+        print("[*] Docker Proxy: Proxy running..........")
         while True:
             client_socket = dock_socket.accept()[0]
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -54,17 +65,29 @@ def server(*settings):
             thread.start_new_thread(forward, (client_socket, server_socket))
             thread.start_new_thread(forward, (server_socket, client_socket))
     finally:
-        thread.start_new_thread(server, settings)
+        thread.start_new_thread(server(settings))
 
 def forward(source, destination):
     string = ' '
+    #print(destination)
     while string:
         string = source.recv(1024)
         if string:
+            #print(string)
             destination.sendall(string)
         else:
             source.shutdown(socket.SHUT_RD)
             destination.shutdown(socket.SHUT_WR)
 
 if __name__ == '__main__':
-    main('port-forward.config', 'error.log')
+    if os.path.isfile('port-forward.config'):
+        try:
+            print("[*] Docker Proxy: config file exits continuing")
+            setup = open('port-forward.config', 'r')
+            error = open('error.log', 'a')
+            main(setup, error)
+        except KeyboardInterrupt:
+            print('closing')
+        #else:
+        #    print("[*] Docker Proxy: Config file not found please make sure 'port-forward.config' is present")
+        #    sys.exit()
