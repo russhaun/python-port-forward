@@ -1,7 +1,7 @@
 # Python Port Forward
 This script forwards a number of configured local ports to local or remote socket servers.
 original script by vinodpandey modified to work on py3 for use with artillery from BinaryDefense
-for use with Docker.this whole script will eventually work its way into said software.
+to use with Docker.this whole script will eventually work its way into said software.
 
 ## Usage:
 ```
