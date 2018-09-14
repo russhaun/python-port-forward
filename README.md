@@ -20,6 +20,7 @@ python port-forward.py
 
 # iis cannot be enabled on machine. port forward will fail
 # and they will see real host. this is a honeypot (right?)
+# port 80 must be allowed through windows firewall
 
 On linux:
 sudo python port-forward.py
