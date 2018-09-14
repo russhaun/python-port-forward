@@ -18,6 +18,9 @@ attacker point of veiw
 On windows:
 python port-forward.py
 
+# iis cannot be enabled on machine. port forward will fail
+# and they will see real host. this is a honeypot (right?)
+
 On linux:
 sudo python port-forward.py
 
