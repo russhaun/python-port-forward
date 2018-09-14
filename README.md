@@ -10,7 +10,7 @@ attacker point of veiw
 '''
 
 #Like This:  Att.-------->>artillery-------->>Doomsday-------->>svcname
-#        (remote net)      (localnet)     (docker net)    (wherever you want)
+#:        (remote net)      (localnet)     (docker net)    (wherever you want)
         
 '''
 ## Usage:
