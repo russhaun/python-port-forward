@@ -7,8 +7,8 @@ to docker contaner on seperate network  in this case port 80 isolating them from
 monitor and react accordingly with a "fake service" that looks local to machine being scanned from 
 attacker point of veiw
                        
-Like This:  Att.------------>>artillery------------>>Doomsday--------->>svcname
-        (remote net)          (localnet)           (ocker net)herever you want)
+Like This:  Att.-------->>artillery-------->>Doomsday-------->>svcname
+#        (remote net)      (localnet)     (docker net)    (wherever you want)
 
 ## Usage:
 ```
