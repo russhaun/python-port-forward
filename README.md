@@ -6,10 +6,12 @@ the basic idea is this: any port that you have artillery monitor can be forwded 
 to docker contaner on seperate network  in this case port 80 isolating them from everyone so you can 
 monitor and react accordingly with a "fake service" that looks local to machine being scanned from 
 attacker point of veiw
-                       
+#Concept:
+'''
+
 Like This:  Att.-------->>artillery-------->>Doomsday-------->>svcname
         (remote net)      (localnet)     (docker net)    (wherever you want)
-
+'''
 ## Usage:
 ```
 On windows:
