@@ -3,7 +3,7 @@ This script forwards a number of configured local ports to local or remote socke
 original script by vinodpandey modified to work on py3 for use with artillery from BinaryDefense
 to use with Docker package Doomsday .this is just a concept more will have to done
 the basic idea is this: any port that you have artillery monitor can be forwded from true host
-to docker contaner on seperate network  in this case port 80 isolating them from everyone so you can 
+to docker container on seperate network  in this case port 80 isolating them from everyone so you can 
 monitor and react accordingly with a "fake service" that looks local to machine being scanned from 
 attacker point of veiw
 ## Concept:
