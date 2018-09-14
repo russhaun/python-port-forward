@@ -6,7 +6,9 @@ the basic idea is this: any port that you have artillery monitor can be forwded 
 to docker contaner on seperate network  in this case port 80 isolating them from everyone so you can 
 monitor and react accordingly with a "fake service" that looks local to machine being scanned from 
 attacker point of veiw
-
+                       
+Like This:  Att.------------>>artillery------------>>Doomsday--------->>svcname
+        (remote net)          (localnet)           (ocker net)herever you want)
 
 ## Usage:
 ```
@@ -42,5 +44,11 @@ Error messages are stored in file 'error.log'.
 
 ## Tested on
 '''
+
 Win 10 pro 
 py 3.6(local)
+
+docker ver used
+Version 18.06.1-ce-win73 (19507)
+running linux containers
+'''
