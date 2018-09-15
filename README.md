@@ -52,7 +52,7 @@ Error messages are stored in file 'error.log'.
 
 ## Tested on
 '''
-1 Remote machine
+
 Win 10 pro 
 py 3.6(local)
 
