@@ -5,7 +5,8 @@ to use with Docker package Doomsday .this is just a concept more will have to do
 the basic idea is this: any port that you have artillery monitor can be forwded from true host
 to docker container on seperate network  in this case port 80 isolating them from everyone so you can 
 monitor and react accordingly with a "fake service" that looks local to machine being scanned from 
-attacker point of veiw
+attacker point of veiw. the current(demo) container lives @  https://hub.docker.com/r/rhaun72/doomsday
+you will need that and this script my current testing setup is below.
 ## Concept:
 '''
 
@@ -22,7 +23,7 @@ python port-forward.py
 # and they will see real host. this is a honeypot (right?)
 # port 80 must be allowed through windows firewall(from current script config)
 
-On linux:
+On linux:(not tested)
 sudo python port-forward.py
 
 # with default port-forward.config, access: http://localhost/ -> this should now show content from http://localhost:8080/
@@ -51,7 +52,7 @@ Error messages are stored in file 'error.log'.
 
 ## Tested on
 '''
-
+1 Remote machine
 Win 10 pro 
 py 3.6(local)
 
