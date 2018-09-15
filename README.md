@@ -1,7 +1,7 @@
 # Python Port Forward
 This script forwards a number of configured local ports to local or remote socket servers.
 original script by vinodpandey modified to work on py3 for use with artillery from BinaryDefense
-to use with Docker package Doomsday .this is just a concept more will have to done
+to use with Docker package Doomsday(oldkingcone) .this is just a concept more will have to done
 the basic idea is this: any port that you have artillery monitor can be forwded from true host
 to docker container on seperate network  in this case port 80 isolating them from everyone so you can 
 monitor and react accordingly with a "fake service" that looks local to machine being scanned from 
@@ -10,8 +10,8 @@ you will need that and this script my current testing setup is below.
 ## Concept:
 '''
 
-#Like This:  Att.->>artillery->>Doomsday->>svcname
-#ex:        (remote_host)->>(local_host)->>(docker_host)->>(wherever you want)
+#Like This:  Att.->>artillery->>Doomsday->>svcname.
+#ex:        (remote_host)->>(local_host)->>(docker_host)->>(wherever you want).
         
 '''
 ## Usage:
@@ -53,10 +53,10 @@ Error messages are stored in file 'error.log'.
 ## Tested on
 '''
 
-Win 10 pro 
-py 3.6(local)
+Win 10 pro. 
+py 3.6(local).
 
-docker ver used
-Version 18.06.1-ce-win73 (19507)
-running linux containers
+docker ver used.
+Version 18.06.1-ce-win73 (19507).
+running linux containers.
 '''
